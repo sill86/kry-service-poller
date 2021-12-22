@@ -12,20 +12,22 @@ Delete service by url: DELETE localhost:8080/service
 Update Service name and userCookie: PUT localhost:8080/service
 
 *DONE:*
--A user is able to add, update and delete a service (full functionality). 
 
--Services are stored in the db, so they are kept when the server is restarted (as db I used the mysql image provided with docker)
+- A user is able to add, update and delete a service (full functionality). 
 
--A basic UI built in react displays the name, url, creation time and status for each service. If you want to have a look, the code is in src/main/frontend.Then the static files have been copied in resources/webroot.
+- Services are stored in the db, so they are kept when the server is restarted (as db I used the mysql image provided with docker)
 
--The result of the poller is automatically shown without reloading the page. This is done in the frontend but I could improve this and make the backend notify the client when the poller has done its job and there are new status upd.
+- A basic UI built in react displays the name, url, creation time and status for each service. If you want to have a look, the code is in src/main/frontend.Then the static files have been copied in resources/webroot.
 
--A pattern regexp validator has been added to check URL to validate the url added by the user.
+- The result of the poller is automatically shown without reloading the page. This is done in the frontend but I could improve this and make the backend notify the client when the poller has done its job and there are new status upd.
 
--Multi user support is done through the use of cookies. When we use a client (I used chrome and postman), cookies are created through UUID.randomUUID() and set in "kryClientCookie".When GET localhost:8080/service is called, we will get the services added using POST localhost:8080/service from the same client.
+- A pattern regexp validator has been added to check URL to validate the url added by the user.
+
+- Multi user support is done through the use of cookies. When we use a client (I used chrome and postman), cookies are created through UUID.randomUUID() and set in "kryClientCookie".When GET localhost:8080/service is called, we will get the services added using POST localhost:8080/service from the same client.
 For this reason the table service has a composite Primary Key made by url and userCookie.
 
 *TODO:*
+
 - Nice animation on add/remove services and make the ui pretty
 
 - The service properly handles concurrent writes
@@ -35,6 +37,7 @@ For this reason the table service has a composite Primary Key made by url and us
 - Improve migration database using frameworks like FlywayDB
 
 *HOW TO RUN*
+
 - Run mysql on docker
 
 - Download the project and open in Intellij
