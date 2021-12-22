@@ -1,4 +1,4 @@
-package se.kry_test.database;
+package se.kry_test.model;
 
 import io.vertx.core.json.JsonObject;
 

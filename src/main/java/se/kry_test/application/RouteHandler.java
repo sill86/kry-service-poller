@@ -1,22 +1,23 @@
 package se.kry_test.application;
 
-import se.kry_test.database.Service;
+import se.kry_test.database.ServiceDAO;
+import se.kry_test.model.ServiceEnum;
+import se.kry_test.model.Service;
 
 import io.netty.handler.codec.http.HttpResponseStatus;
 import io.vertx.core.http.HttpServerResponse;
 import io.vertx.core.logging.LoggerFactory;
 import io.vertx.ext.web.RoutingContext;
-import se.kry_test.database.ServiceDAO;
-import io.vertx.core.json.JsonArray;
 import io.vertx.core.json.JsonObject;
 import io.vertx.core.logging.Logger;
+import io.vertx.core.json.JsonArray;
 import io.vertx.core.http.Cookie;
 import io.vertx.core.json.Json;
 
-import java.util.stream.Collectors;
+import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-import java.util.List;
+import java.util.stream.Collectors;
 
 public class RouteHandler {
   private static final String PATTERN = "^(https?|http?)://[-a-zA-Z0-9+&@#/%?=~_|!:,.;]*[-a-zA-Z0-9+&@#/%=~_|]";

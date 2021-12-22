@@ -1,6 +1,7 @@
 package se.kry_test.database;
 
 import io.vertx.core.Future;
+import se.kry_test.model.Service;
 
 import java.util.List;
 import java.util.Map;

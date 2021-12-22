@@ -1,7 +1,9 @@
 package se.kry_test.database;
 
 import se.kry_test.application.NotFoundException;
-import se.kry_test.application.ServiceEnum;
+import se.kry_test.model.ServiceStatus;
+import se.kry_test.model.ServiceEnum;
+import se.kry_test.model.Service;
 
 import io.vertx.ext.sql.SQLConnection;
 import io.vertx.core.json.JsonArray;
@@ -126,7 +128,7 @@ public class ServiceDAOImpl implements ServiceDAO {
       .add(service.getUrl())
       .add(service.getName())
       .add(service.getCreationDate())
-      .add(ServiceEnum.STATUS_UNKNOWN.label())
+      .add(ServiceStatus.UNKNOWN.label())
       .add(service.getUserCookie());
 
     return query(SQLStatements.SQL_INSERT, jsonArray);

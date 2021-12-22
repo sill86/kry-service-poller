@@ -1,31 +1,37 @@
-= Kry-test
+The goal is to build a service that store a list of services with names and periodically poll them.
+This is my first time with Vert.x so I did not have time to write proper test in 4 hours.
 
-image:https://img.shields.io/badge/vert.x-4.2.2-purple.svg[link="https://vertx.io"]
+LIST OF SERVICES:
 
-This application was generated using http://start.vertx.io
+List Services: GET localhost:8080/service
+Add one Service: POST localhost:8080/service
+Delete service by url: DELETE localhost:8080/service
+Update Service name and userCookie: PUT localhost:8080/service
 
-== Building
+DONE:
+-A user is able to add, update and delete a service (full functionality)
+-Services are stored in the db, so they are kept when the server is restarted (as db I used the mysql image provided with docker)
+-A basic UI built in react displays the name, url, creation time and status for each service. If you want to have a look, the code is in src/main/frontend.
+Then the static files have been copied in resources/webroot.
+-The result of the poller is automatically shown without reloading the page. This is done in the frontend but I could improve this and make the backend notify the client
+when the poller has done its job and there are new status upd.
+-A pattern regexp validator has been added to check URL to validate the url added by the user.
+-Multi user support is done through the use of cookies. When we use a client (I used chrome and postman), cookies are created through UUID.randomUUID() and set in "kryClientCookie".
+When GET localhost:8080/service is called, we will get the services added using POST localhost:8080/service from the same client.
+For this reason the table service has a composite Primary Key made by url and userCookie.
 
-To launch your tests:
-```
-./gradlew clean test
-```
+TODO:
+- Nice animation on add/remove services and make the ui pretty
+- The service properly handles concurrent writes
+- Protect the poller from misbehaving services (for example answering really slowly)
+- Improve migration database using frameworks like FlywayDB
 
-To package your application:
-```
-./gradlew clean assemble
-```
+HOW TO RUN
+- Run mysql on docker
+- Download the project and open in Intellij
+- Import the project in Intellij -> File -> New -> Project from Existing Sources and then select gradle -> Import from external model -> Gradle and select the gradle wrapper config
+- Go inside kry-test and run ./gradlew clean build and the start the service run ./gradlew run
+- Type in the browser http://localhost:8080 and you should see a page with the form to insert the service
 
-To run your application:
-```
-./gradlew clean run
-```
-
-== Help
-
-* https://vertx.io/docs/[Vert.x Documentation]
-* https://stackoverflow.com/questions/tagged/vert.x?sort=newest&pageSize=15[Vert.x Stack Overflow]
-* https://groups.google.com/forum/?fromgroups#!forum/vertx[Vert.x User Group]
-* https://gitter.im/eclipse-vertx/vertx-users[Vert.x Gitter]
 
 

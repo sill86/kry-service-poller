@@ -1,4 +1,4 @@
-package se.kry_test.application;
+package se.kry_test.model;
 
 public enum ServiceEnum {
 
@@ -7,9 +7,6 @@ public enum ServiceEnum {
   STATUS("status"),
   CREATIONDATE("creationDate"),
   USERCOOKIE("userCookie"),
-  STATUS_FAIL("FAIL"),
-  STATUS_OK("OK"),
-  STATUS_UNKNOWN("UNKNOWN"),
   HTTP_PORT("http_port"),
   COOKIE("kryClientCookie");
 

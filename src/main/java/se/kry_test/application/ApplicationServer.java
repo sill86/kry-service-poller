@@ -3,18 +3,21 @@ package se.kry_test.application;
 import se.kry_test.database.ServiceDAOImpl;
 import se.kry_test.service.ServicePoller;
 import se.kry_test.database.ServiceDAO;
+import se.kry_test.model.ServiceEnum;
 
 import io.vertx.ext.web.handler.StaticHandler;
 import io.vertx.ext.web.handler.CookieHandler;
 import io.vertx.ext.web.handler.CorsHandler;
 import io.vertx.ext.web.handler.BodyHandler;
 import io.vertx.core.logging.LoggerFactory;
+import io.vertx.core.AbstractVerticle;
 import io.vertx.core.http.HttpServer;
 import io.vertx.core.logging.Logger;
 import io.vertx.core.http.Cookie;
 import io.vertx.ext.web.Router;
-import io.vertx.core.*;
-
+import io.vertx.core.Context;
+import io.vertx.core.Promise;
+import io.vertx.core.Vertx;
 import java.util.UUID;
 
 public class ApplicationServer extends AbstractVerticle {
@@ -91,7 +94,7 @@ public class ApplicationServer extends AbstractVerticle {
     );
     router.get("/service").handler(routeHandler::getServicesByUser);
     router.post("/service").handler(routeHandler::addService);
-    router.put("/service").handler(routeHandler::updateService);
+    router.put("/service}").handler(routeHandler::updateService);
     router.delete("/service").handler(routeHandler::deleteService);
   }
 
