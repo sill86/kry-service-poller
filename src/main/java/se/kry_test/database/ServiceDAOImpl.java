@@ -138,24 +138,6 @@ public class ServiceDAOImpl implements ServiceDAO {
   public Future<Void> update(Service service) {
     JsonArray jsonArray = new JsonArray().add(service.getName()).add(service.getUrl()).add(service.getUserCookie());
     return query(SQLStatements.SQL_UPDATE_NAME, jsonArray);
-    /*return this.connection().compose(connection -> {
-      final Promise<Void> promise = Promise.promise();
-      JsonArray jsonArray = new JsonArray().add(service.getName()).add(service.getCreationDate()).add(service.getStatus()).add(service.getUrl());
-
-      connection.updateWithParams(SQLStatements.SQL_UPDATE, jsonArray, result -> {
-        try {
-          if (result.failed()) {
-            this.closeConnection(connection, promise, result.cause());
-            return;
-          }
-          connection.close();
-          promise.complete();
-        } catch (final Exception e) {
-          this.closeConnection(connection, promise, e);
-        }
-      });
-      return promise.future();
-    });*/
   }
 
   @Override
