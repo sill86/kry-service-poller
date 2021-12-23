@@ -9,7 +9,7 @@ Add one Service: POST localhost:8080/service
 
 Delete service by url: DELETE localhost:8080/service
 
-Update Service name and userCookie: PUT localhost:8080/service
+Update Service by name and userCookie: PUT localhost:8080/service
 
 *DONE:*
 
@@ -42,9 +42,9 @@ For this reason the table service has a composite Primary Key made by url and us
 
 - Download the project and open in Intellij
 
-- Import the project in Intellij -> File -> New -> Project from Existing Sources and then select gradle -> Import from external model -> Gradle and select the gradle wrapper config
+- Import the project in Intellij -> File -> New -> Project from Existing Sources and then select gradle -> Import from external model -> Gradle
 
-- Go inside kry-test and run ./gradlew clean build and the start the service run ./gradlew run
+- Go inside kry-test and run ./gradlew clean build and then to start the service run ./gradlew run
 
 - Type in the browser http://localhost:8080 and you should see a page with the form to insert the service
 
